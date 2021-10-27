@@ -37,14 +37,12 @@
     <title>Custom Video Player</title>
   </head>
   <body>
-    <!-- <h1>Custom Video Player</h1> -->
-
     <div class="player-body">
       <video
-        src="video/video.mp4"
+        src="video/clip2.mp4"
         id="video"
         class="screen"
-        poster="css/images/poster.jpg"
+        preload="metadata"
       ></video>
       <div class="controls">
         <div class="controls-inside">
@@ -87,18 +85,17 @@
         <div class="speed-list-inside">
           <div class="speed-list-title">SPEED CHANGE</div>
           <div class="speed-list-option" data-speed="0.5">0.5</div>
+          <div class="speed-list-option" data-speed="0.75">0.75</div>
           <div class="speed-list-option active" data-speed="1">normal</div>
-          <div class="speed-list-option" data-speed="0.5">0.5</div>
-          <div class="speed-list-option" data-speed="0.5">0.5</div>
-          <div class="speed-list-option" data-speed="0.5">0.5</div>
+          <div class="speed-list-option" data-speed="1.5">1.5</div>
+          <div class="speed-list-option" data-speed="2">2</div>
           <div class="speed-list-close">x</div>
         </div>
       </div>
-      <button class="more">
+      <span class="more">
         <i class="fas fa-ellipsis-v"></i>
-      </button>
+      </span>
     </div>
-
     <script src="main.js" type="text/javascript"></script>
   </body>
 </html>

@@ -15,13 +15,6 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #f4f4f4;
-  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23e3e3e3' fill-opacity='0.4'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); */
-  /* background-image: url("./images/background.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d8e0de+0,aebfbc+22,99afab+33,8ea6a2+50,829d98+67,4e5c5a+82,0e0e0e+100;Grey+3D */
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4c4c4c+0,595959+12,666666+25,474747+39,2c2c2c+50,000000+51,111111+60,2b2b2b+76,1c1c1c+91,131313+100;Black+Gloss+%231 */
   background: rgb(76, 76, 76); /* Old browsers */
   background: -moz-linear-gradient(
     -45deg,
@@ -82,6 +75,9 @@ h1 {
   box-shadow: 1px 1px 14px 0px rgba(89, 89, 89, 0.55);
   position: relative;
 }
+.player-body:hover .controls {
+  max-height: 100px;
+}
 
 .screen {
   cursor: pointer;
@@ -99,76 +95,60 @@ h1 {
   transition: all 0.5s ease-out;
   overflow: hidden;
 }
-
-.player-body:hover .controls {
-  max-height: 100px;
-}
-.player-body:hover .more {
-  display: block;
-}
-.more {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: none;
-}
-.more i {
-  background-color: transparent;
-  color: #010101;
-}
-
 .controls-inside {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
-
 .controls .btn {
   background: transparent;
   border: 0;
   cursor: pointer;
   padding: 10px;
 }
-.controls #stop {
-  display: none;
-}
-.controls .btn.sound-btn {
-  width: 50px;
-  display: none;
-}
-
-.controls #play {
-  font-size: 12px;
-}
-.controls .slider-volume {
-  display: none;
-}
-.controls #settings {
-  display: none;
-}
-
 .controls .btn:focus {
   outline: 0;
 }
+.controls i {
+  color: rgba(28, 28, 28, 1) 91%;
+  width: 50%;
+}
+.controls #play {
+  font-size: 12px;
+}
+
+.controls #stop {
+  display: block;
+  font-size: 7px;
+}
+.controls .btn.sound-btn {
+  width: 70px;
+  display: block;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.controls .slider-volume {
+  display: block;
+  max-width: 100px;
+  margin-right: 10px;
+}
+
 .controls .timestamp {
   color: #fff;
   font-weight: bold;
   padding: 10px;
   margin-right: -15px;
 }
+.controls #settings {
+  display: block;
+  position: relative;
+}
 .controls #fullScreen {
   padding: 10px;
   margin-right: 10px;
 }
-.controls i {
-  color: rgba(28, 28, 28, 1) 91%;
-  width: 50%;
-}
-.controls #settings {
-  position: relative;
-}
-
 #speedList {
   display: none;
 }
@@ -193,11 +173,12 @@ h1 {
 }
 
 .speed-list-title {
-  padding: 5px;
+  padding: 7px;
   color: rgb(78, 78, 78);
   font-weight: bold;
   border-bottom: 1px solid rgb(78, 78, 78);
   margin-bottom: 5px;
+  font-size: 15px;
 }
 
 .speed-list-option {
@@ -222,6 +203,26 @@ h1 {
 .speed-list-option:not(.active):hover {
   background-color: #666;
 }
+.more {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+  background: #ffffff38;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 30px;
+  cursor: pointer;
+  -webkit-box-shadow: 1px 1px 14px 0px rgba(235, 235, 235, 0.55);
+  -moz-box-shadow: 1px 1px 14px 0px rgba(235, 235, 235, 0.55);
+  box-shadow: 1px 1px 14px 0px rgba(235, 235, 235, 0.55);
+}
+.more i {
+  color: #010101;
+}
 
 @media (max-width: 800px) {
   .player-body {
@@ -230,5 +231,33 @@ h1 {
   .screen,
   .controls {
     width: 100%;
+  }
+  .controls .btn.sound-btn {
+    display: none;
+  }
+  .controls .slider-volume {
+    display: none;
+  }
+  .controls #settings {
+    display: none;
+  }
+  .controls #stop {
+    display: none;
+  }
+  .controls #play {
+    font-size: 14px;
+  }
+  .player-body:hover .more {
+    display: flex;
+  }
+  .speed-list-title {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .speed-list-option {
+    padding: 3px;
+  }
+  .speed-list-close {
+    padding: 1px;
   }
 }

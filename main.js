@@ -7,6 +7,11 @@ const sound = document.getElementById("sound");
 const sliderVolume = document.getElementById("sliderVolume");
 const fullScreen = document.getElementById("fullScreen");
 const settings = document.getElementById("settings");
+const speedList = document.getElementById("speedList");
+const speedListClose = document.querySelector(".speed-list-close");
+const speedContainer = document.querySelector(".speed-list-inside");
+const more = document.querySelector(".more");
+const speedSelectors = document.querySelectorAll(".speed-list-option");
 
 //play and pause the video
 
@@ -22,9 +27,9 @@ function toggleVideoStatus() {
 
 function updatePlayIcon() {
   if (video.paused) {
-    play.innerHTML = '<i class="fa fa-play fa-2x"></i>';
+    play.innerHTML = '<i class="fa fa-play"></i>';
   } else {
-    play.innerHTML = '<i class="fa fa-pause fa-2x"></i>';
+    play.innerHTML = '<i class="fa fa-pause"></i>';
   }
 }
 
@@ -102,12 +107,15 @@ function toggleScreen() {
 //Show speed list (for video)
 
 function showSpeedList() {
-  let speedList = document.getElementById("speedList");
-  speedList.addEventListener("change", changeSpeed);
   speedList.classList.toggle("active");
-  function changeSpeed(event) {
-    video.playbackRate = event.target.value;
-  }
+}
+
+function hideSpeedList() {
+  speedList.classList.remove("active");
+}
+
+function changeSpeed(speed) {
+  video.playbackRate = speed;
 }
 
 //Event listeners
@@ -129,3 +137,23 @@ sound.addEventListener("click", toggleSound);
 sliderVolume.addEventListener("input", setSoundProgress);
 fullScreen.addEventListener("click", toggleScreen);
 settings.addEventListener("click", showSpeedList);
+more.addEventListener("click", showSpeedList);
+
+speedListClose.addEventListener("click", hideSpeedList);
+
+speedContainer.addEventListener("click", (e) => {
+  const clickedEl = e.target;
+
+  if (
+    clickedEl.classList.contains("speed-list-option") &&
+    !clickedEl.classList.contains("active")
+  ) {
+    const speed = clickedEl.getAttribute("data-speed");
+    changeSpeed(speed);
+    speedSelectors.forEach((elem) => {
+      elem.classList.remove("active");
+    });
+    clickedEl.classList.add("active");
+    hideSpeedList();
+  }
+});
