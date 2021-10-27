@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Questrial", sans-serif;
+  background-color: rgb(195, 195, 195);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23e3e3e3' fill-opacity='0.4'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); */
+  /* background-image: url("./images/background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d8e0de+0,aebfbc+22,99afab+33,8ea6a2+50,829d98+67,4e5c5a+82,0e0e0e+100;Grey+3D */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4c4c4c+0,595959+12,666666+25,474747+39,2c2c2c+50,000000+51,111111+60,2b2b2b+76,1c1c1c+91,131313+100;Black+Gloss+%231 */
+  background: rgb(76, 76, 76); /* Old browsers */
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(76, 76, 76, 1) 0%,
+    rgba(89, 89, 89, 1) 12%,
+    rgba(102, 102, 102, 1) 25%,
+    rgba(71, 71, 71, 1) 39%,
+    rgba(44, 44, 44, 1) 50%,
+    rgba(0, 0, 0, 1) 51%,
+    rgba(17, 17, 17, 1) 60%,
+    rgba(43, 43, 43, 1) 76%,
+    rgba(28, 28, 28, 1) 91%,
+    rgba(19, 19, 19, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(76, 76, 76, 1) 0%,
+    rgba(89, 89, 89, 1) 12%,
+    rgba(102, 102, 102, 1) 25%,
+    rgba(71, 71, 71, 1) 39%,
+    rgba(44, 44, 44, 1) 50%,
+    rgba(0, 0, 0, 1) 51%,
+    rgba(17, 17, 17, 1) 60%,
+    rgba(43, 43, 43, 1) 76%,
+    rgba(28, 28, 28, 1) 91%,
+    rgba(19, 19, 19, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    135deg,
+    rgba(76, 76, 76, 1) 0%,
+    rgba(89, 89, 89, 1) 12%,
+    rgba(102, 102, 102, 1) 25%,
+    rgba(71, 71, 71, 1) 39%,
+    rgba(44, 44, 44, 1) 50%,
+    rgba(0, 0, 0, 1) 51%,
+    rgba(17, 17, 17, 1) 60%,
+    rgba(43, 43, 43, 1) 76%,
+    rgba(28, 28, 28, 1) 91%,
+    rgba(19, 19, 19, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+h1 {
+  color: #fff;
+}
+
+.player-body {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 2px 1px -1px rgb(0 0 0 / 12%);
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 60%;
+  padding: 1px;
+  -webkit-box-shadow: 1px 1px 14px 0px rgba(89, 89, 89, 0.55);
+  -moz-box-shadow: 1px 1px 14px 0px rgba(89, 89, 89, 0.55);
+  box-shadow: 1px 1px 14px 0px rgba(89, 89, 89, 0.55);
+  position: relative;
+}
+
+.screen {
+  cursor: pointer;
+  width: 100%;
+  background-color: #000 !important;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  background: rgba(51, 51, 51, 0.739);
+  color: #fff;
+  width: 100%;
+  max-height: 0;
+  transition: all 0.5s ease-out;
+  overflow: hidden;
+}
+
+.player-body:hover .controls {
+  max-height: 100px;
+}
+.player-body:hover .more {
+  display: block;
+}
+.more {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+.more i {
+  background-color: transparent;
+  color: #010101;
+}
+
+.controls-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.controls .btn {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 10px;
+}
+.controls #stop {
+  display: none;
+}
+.controls .btn.sound-btn {
+  width: 50px;
+  display: none;
+}
+
+.controls #play {
+  font-size: 12px;
+}
+.controls .slider-volume {
+  display: none;
+}
+.controls #settings {
+  display: none;
+}
+
+.controls .btn:focus {
+  outline: 0;
+}
+.controls .timestamp {
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  margin-right: -15px;
+}
+.controls #fullScreen {
+  padding: 10px;
+  margin-right: 10px;
+}
+.controls i {
+  color: rgba(28, 28, 28, 1) 91%;
+  width: 50%;
+}
+.controls #settings {
+  position: relative;
+}
+
+#speedList {
+  display: none;
+}
+#speedList.active {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 150px;
+}
+
+.speed-list-inside {
+  background-color: #333;
+  color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 2px 1px -1px rgb(0 0 0 / 12%);
+  padding: 5px;
+}
+
+.speed-list-title {
+  padding: 5px;
+  color: rgb(78, 78, 78);
+  font-weight: bold;
+  border-bottom: 1px solid rgb(78, 78, 78);
+  margin-bottom: 5px;
+}
+
+.speed-list-option {
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.speed-list-close {
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: crimson;
+}
+
+.speed-list-option.active {
+  color: darkcyan;
+  cursor: default;
+  font-weight: bolder;
+}
+
+.speed-list-option:not(.active):hover {
+  background-color: #666;
+}
+
+@media (max-width: 800px) {
+  .player-body {
+    width: 90%;
+  }
+  .screen,
+  .controls {
+    width: 100%;
+  }
+}
